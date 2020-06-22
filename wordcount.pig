@@ -14,5 +14,8 @@ wordcount = FOREACH grpwords GENERATE group, COUNT(words);
 
 -- Order by number of words
 ordbycount = ORDER wordcount by $1;
+
+--DUMP ordbycount;
+
 -- Store word coud result in file.
 STORE ordbycount  INTO 'wordcount' USING PigStorage(',');
